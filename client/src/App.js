@@ -1,22 +1,19 @@
 import './App.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { BroserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './Pages/Home';
 
 function App() {
-    const [listPosts, setListPosts] = useState([])
-    useEffect(() => {
-        axios.get("http://localhost:3001/posts").then((response) => {
-            setListPosts(response.data)
-        })
-    }, [])
-    return ( < div className = 'App' > {
-            listPosts.map((value, key) => {
-                return <div > { value.title } < /div>
-            })
-        }
+    return (
+        <div className='App'>
+            <Router>
+                <Switch>
+                    <Route path='/' exact Component={Home   } />
 
-        <
-        /div>);
-    }
+                </Switch>
+            </Router>
+        </div>
+    )
+    
+}
 
-    export default App;
+export default App;
