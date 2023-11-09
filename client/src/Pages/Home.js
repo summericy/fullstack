@@ -9,13 +9,16 @@ function Home() {
             setListPosts(response.data)
         })
     }, [])
-    return ( <div className = 'App' > {
-            listPosts.map((value, key) => {
-                return <div > { value.title } </div>
-            })
-        }
+    return (<div > {listPosts.map((value, key) => {
+        return (
+            <div key={key}>
+                <div>{value.title}</div>
+                <div>{value.postText}</div>
+            </div>
+        )
+    })}
 
         </div>);
 }
 
-export default Home
+export default Home;
